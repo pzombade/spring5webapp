@@ -11,7 +11,7 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private  Long id;
+    private  Long id = Long.valueOf(0);
     private String title;
     private String isbn;
     private String publisher;
@@ -20,6 +20,8 @@ public class Book {
     @JoinTable(name="author_book", joinColumns = @JoinColumn(name = "book_id"),
     inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> authors = new HashSet<>();
+
+    public Book(){}
 
     public String getTitle() {
         return title;
